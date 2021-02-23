@@ -14,7 +14,19 @@ img {
   height: auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
+  #content-desktop {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #content-desktop {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 479px) {
   #content-desktop {
     display: none;
   }
