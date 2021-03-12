@@ -1,0 +1,64 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.content p, h3 {
+    font-family: 'Century Gothic';
+}
+
+#submitButton {
+    margin: 20px;
+}
+
+body {
+    background-color: cadetblue;
+}
+
+button {
+    border-radius: 5px;
+    border: none;
+    height: 35px;
+    width: auto;
+    background-color: whitesmoke;
+    font-family: 'Century Gothic';
+    font-weight: bold;
+}
+
+.inputBox {
+    padding: 5px;
+    width: auto;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-family: "Cascadia Code";
+    font-weight: bold;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.customSelect::selection {
+    color: cadetblue;
+    background-color: black;
+}
+
+.customSelect::-moz-selection {
+    color: cadetblue;
+    background-color: black;
+}
