@@ -1,0 +1,83 @@
+.row {
+    height: 100%;
+}
+
+.section {
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and (max-width: 570px) {
+    .center {
+        max-height: auto;
+        height: 50vh;
+    }
+}
+
+.logo {
+    width: 200px;
+}
+
+.tankobon {
+    background-color: rgb(82, 185, 185);
+    color: #212529;
+}
+
+.tankobon .btn-primary,
+.tankobon .btn-primary:hover,
+.tankobon .btn-primary:active,
+.tankobon .btn-primary:visited {
+    background-color: #212529 !important;
+    border-color: #212529 !important;
+    color: white !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+.kaboom {
+    background: linear-gradient(90deg, rgba(255, 95, 109, 1) 0%, rgba(255, 195, 113, 1) 77%);
+    color: #171717;
+}
+
+.kaboom .btn-primary,
+.kaboom .btn-primary:hover,
+.kaboom .btn-primary:active,
+.kaboom .btn-primary:visited {
+    background-color: rgb(255, 95, 109) !important;
+    border-color: rgb(255, 95, 109) !important;
+    color: white !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+.passguard {
+    background-color: #23214b;
+    color: white;
+}
+
+.passguard .btn-primary,
+.passguard .btn-primary:hover,
+.passguard .btn-primary:active,
+.passguard .btn-primary:visited {
+    background-color: white !important;
+    border-color: white !important;
+    color: #23214b !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+.comicpeeps {
+    background-color: #020202;
+    color: #fc8e44;
+}
+
+.comicpeeps .btn-primary,
+.comicpeeps .btn-primary:hover,
+.comicpeeps .btn-primary:active,
+.comicpeeps .btn-primary:visited {
+    background-color: #fc8e44 !important;
+    border-color: #fc8e44 !important;
+    color: #020202 !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
