@@ -4,6 +4,10 @@ body {
     font-family: 'Montserrat';
 }
 
+h1 {
+    font-weight: bold !important;
+}
+
 .row {
     height: 100%;
 }
