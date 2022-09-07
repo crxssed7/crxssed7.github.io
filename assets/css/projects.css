@@ -12,9 +12,13 @@ h1 {
     height: 100%;
 }
 
-.section {
+/* .section {
     height: 100%;
     width: 100%;
+} */
+
+.fp-watermark {
+    visibility: hidden;
 }
 
 @media screen and (max-width: 570px) {
