@@ -12,6 +12,10 @@ h1 {
     height: 100%;
 }
 
+img {
+    padding: 15px;
+}
+
 /* .section {
     height: 100%;
     width: 100%;
