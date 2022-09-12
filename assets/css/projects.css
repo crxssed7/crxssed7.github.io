@@ -21,6 +21,10 @@ img {
     width: 100%;
 } */
 
+.vertical-scrolling > div, .vertical-scrolling {
+    height: 100% !important;
+}
+
 .fp-watermark {
     visibility: hidden;
 }
@@ -52,6 +56,11 @@ img {
     margin-bottom: 5px !important;
 }
 
+.tankobon ::selection {
+    color: black !important;
+    background-color: rgb(82, 218, 171) !important;
+}
+
 .kaboom {
     background: linear-gradient(90deg, rgba(255, 95, 109, 1) 0%, rgba(255, 195, 113, 1) 77%);
     color: #171717;
@@ -66,6 +75,11 @@ img {
     color: white !important;
     margin-top: 5px !important;
     margin-bottom: 5px !important;
+}
+
+.kaboom ::selection {
+    color: rgb(255, 95, 109) !important;
+    background-color: rgba(255, 195, 113, 1) !important;
 }
 
 .passguard {
@@ -84,6 +98,11 @@ img {
     margin-bottom: 5px !important;
 }
 
+.passguard ::selection {
+    color: #23214b  !important;
+    background-color: white !important;
+}
+
 .comicpeeps {
     background-color: #020202;
     color: #fc8e44;
@@ -98,4 +117,9 @@ img {
     color: #020202 !important;
     margin-top: 5px !important;
     margin-bottom: 5px !important;
+}
+
+.comicpeeps ::selection {
+    color: #020202 !important;
+    background-color: #fc8e44 !important;
 }
