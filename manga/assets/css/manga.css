@@ -1,0 +1,60 @@
+* {
+    font-family: 'Courier Prime', monospace;
+    color: whitesmoke;
+}
+
+.entry {
+    margin: 10px 0px;
+    padding: 10px;
+    border: 4px solid;
+    border-radius: 10px;
+}
+
+.entry-img {
+    margin-right: 10px;
+    width: 75px;
+    min-width: 75px;
+    height: 75px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px !important;
+}
+
+.flex {
+    display: flex;
+}
+
+.entry-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.entry-name {
+    height: 1.5em;
+    display: block;
+    /* Fallback for non-webkit */
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+}
+
+.header {
+    margin: 25px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    padding: 75px;
+}
+
+.spacer {
+    height: 50px;
+}
