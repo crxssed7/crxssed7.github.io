@@ -3,6 +3,14 @@
     color: whitesmoke;
 }
 
+a {
+    color: whitesmoke;
+}
+
+a:hover {
+    color: lightgray;
+}
+
 .entry {
     margin: 10px 0px;
     padding: 10px;
@@ -45,7 +53,6 @@
 
 .header {
     margin: 25px;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,6 +60,16 @@
     align-content: center;
     text-align: center;
     padding: 75px;
+}
+
+.footer {
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
 }
 
 .spacer {

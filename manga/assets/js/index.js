@@ -14,6 +14,16 @@ var query = `
         entries {
           id
           progress
+          completedAt {
+            year
+            month
+            day
+          }
+          startedAt {
+            year
+            month
+            day
+          }
           media {
             id
             title {
@@ -52,8 +62,8 @@ var url = 'https://graphql.anilist.co',
 
 // Make the HTTP Api request
 fetch(url, options).then(handleResponse)
-                   .then(handleData)
-                   .catch(handleError);
+    .then(handleData)
+    .catch(handleError);
 
 function handleResponse(response) {
     return response.json().then(function (json) {
@@ -77,6 +87,13 @@ function handleData(data) {
     var plannedEl = document.getElementById('planned');
 
     reading.map((e) => {
+        var startedAt = e['startedAt'];
+        var startedAtString = '';
+        if (startedAt['year']) {
+            var d = generateDate(Number(startedAt['year']), Number(startedAt['month']), Number(startedAt['day']));
+            startedAtString = `Started: ${d}`
+        }
+
         var progress = e['progress'];
         var chapters = e['media']['chapters'];
         var max = 0;
@@ -98,7 +115,7 @@ function handleData(data) {
         if (chapterName == null || chapterName == undefined) {
             chapterName = e['media']['title']['romaji'];
         }
-        
+
         var html = `
         <div class="entry" style="border-color: ${color};">
             <div class="flex">
@@ -109,6 +126,7 @@ function handleData(data) {
                         <h5>${chapterName}</h5>
                     </div>
                     <div>
+                        <p style="margin-bottom: 0px;"><small>${startedAtString}</small></p>
                         <p style="margin-bottom: 0px;"><small>${progress} / ${chapters}</small></p>
                         <div class="progress" style="height: 5px;">
                             <div class="progress-bar" role="progressbar" style="width: ${percentage}%; background-color: ${color};" aria-valuenow="${progress}" aria-valuemin="0" aria-valuemax="${max}"></div>
@@ -122,6 +140,13 @@ function handleData(data) {
     })
 
     completed.map((e) => {
+        var completedAt = e['completedAt'];
+        var completedAtString = '';
+        if (completedAt['year']) {
+            var d = generateDate(Number(completedAt['year']), Number(completedAt['month']), Number(completedAt['day']));
+            completedAtString = `Completed: ${d}`
+        }
+
         var chapters = e['media']['chapters'];
         if (chapters == null || chapters == undefined) {
             chapters = '?';
@@ -147,6 +172,7 @@ function handleData(data) {
                     <div class="entry-name">
                         <h5>${chapterName}</h5>
                     </div>
+                    <p style="margin-bottom: 0px;"><small>${completedAtString}</small></p>
                     <p style="margin-bottom: 0px;"><small>${e['progress']} / ${chapters}</small></p>
                 </div>
             </div>
@@ -193,4 +219,9 @@ function handleData(data) {
 function handleError(error) {
     // alert('Error, check console');
     console.error(error);
+}
+
+function generateDate(year, month, day) {
+    var date = new Date(year, month, day);
+    return date.toLocaleDateString();
 }
