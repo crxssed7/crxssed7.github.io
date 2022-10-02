@@ -4,6 +4,10 @@ var query = `
       user {
         id
         name
+        avatar {
+          large
+          medium
+        }
       }
       lists {
         name
@@ -24,6 +28,7 @@ var query = `
             month
             day
           }
+          notes
           media {
             id
             title {
@@ -82,11 +87,28 @@ function handleData(data) {
         return obj.name === "Planning"
     })["entries"];
 
+    var read = 0;
+    var left = 0;
+
     var readingEl = document.getElementById('reading');
     var completedEl = document.getElementById('completed');
     var plannedEl = document.getElementById('planned');
+    var chaptersReadEl = document.getElementById('chapters_read');
+    var chaptersLeftEl = document.getElementById('chapters_left');
+    var avatarEl = document.getElementById('avatar');
+
+    console.log(data);
+    avatarEl.setAttribute('src', data["data"]["MediaListCollection"]['user']['avatar']['medium']);
 
     reading.map((e) => {
+        var notes = e['notes'];
+        var notesStr = '';
+        if (notes == null) {
+            notesStr = '';
+        } else {
+            notesStr = notes;
+        }
+
         var startedAt = e['startedAt'];
         var startedAtString = '';
         if (startedAt['year']) {
@@ -102,6 +124,7 @@ function handleData(data) {
             max = progress;
         } else {
             max = Number(chapters);
+            left += max - progress;
         }
 
         var percentage = (progress / max) * 100;
@@ -116,8 +139,10 @@ function handleData(data) {
             chapterName = e['media']['title']['romaji'];
         }
 
+        read += progress;
+
         var html = `
-        <div class="entry" style="border-color: ${color};">
+        <div class="entry" style="border-color: ${color};" title="${notesStr}">
             <div class="flex">
                 <div class="entry-img" style="background-image: url('${e['media']['coverImage']['medium']}');">
                 </div>
@@ -140,6 +165,14 @@ function handleData(data) {
     })
 
     completed.map((e) => {
+        var notes = e['notes'];
+        var notesStr = '';
+        if (notes == null) {
+            notesStr = '';
+        } else {
+            notesStr = notes;
+        }
+
         var completedAt = e['completedAt'];
         var completedAtString = '';
         if (completedAt['year']) {
@@ -162,8 +195,10 @@ function handleData(data) {
             chapterName = e['media']['title']['romaji'];
         }
 
+        read += e['progress'];
+
         var html = `
-        <div class="entry" style="border-color: ${color};">
+        <div class="entry" style="border-color: ${color};" title="${notesStr}">
             <div class="flex">
                 <div class="entry-img"
                     style="background-image: url('${e['media']['coverImage']['medium']}');">
@@ -182,9 +217,19 @@ function handleData(data) {
     })
 
     planning.map((e) => {
+        var notes = e['notes'];
+        var notesStr = '';
+        if (notes == null) {
+            notesStr = '';
+        } else {
+            notesStr = notes;
+        }
+
         var chapters = e['media']['chapters'];
         if (chapters == null || chapters == undefined) {
             chapters = '?';
+        } else {
+            left += chapters;
         }
 
         var color = e['media']['coverImage']['color'];
@@ -198,7 +243,7 @@ function handleData(data) {
         }
 
         var html = `
-        <div class="entry" style="border-color: ${color};">
+        <div class="entry" style="border-color: ${color};" title="${notesStr}">
             <div class="flex">
                 <div class="entry-img"
                     style="background-image: url('${e['media']['coverImage']['medium']}');">
@@ -214,6 +259,9 @@ function handleData(data) {
 
         plannedEl.innerHTML += html;
     })
+
+    chaptersReadEl.innerText = read;
+    chaptersLeftEl.innerText = left;
 }
 
 function handleError(error) {

@@ -12,8 +12,16 @@
     <link rel="icon" type="image/png" sizes="180x180" href="/assets/img/180x180.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="/assets/img/512x512.png">
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/manga.css">
+    <link rel="stylesheet" href="/assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courier+Prime">
     <link rel="manifest" href="/manifest.json">
     <link rel=”canonical“ href=”https://crxssed.dev/” />
@@ -30,10 +38,27 @@
 
 <body style="color: rgb(2,2,2);background: rgb(2,2,2);">
     <div class="header">
+        <img src="" alt="Avatar" id="avatar">
         <h1>crxssed manga list</h1>
     </div>
 
     <div class="container">
+        <div>
+            <h3>Stats</h3>
+            <table class="table">
+                <tbody>
+                  <tr>
+                    <th>Chapters read</th>
+                    <td><span id="chapters_read">0</span></td>
+                  </tr>
+                  <tr>
+                    <th>Left to read (estimated)</th>
+                    <td><span id="chapters_left">0</span></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="spacer"></div>
         <div>
             <h3>Reading</h3>
             <div id="reading">
@@ -54,7 +79,7 @@
 
             </div>
         </div>
-    
+
         <div class="footer">
             <p><small>Powered by <a href="https://anilist.co/user/crxssed/mangalist/">AniList</a></small></p>
         </div>

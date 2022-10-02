@@ -40,6 +40,13 @@ a:hover {
     width: 100%;
 }
 
+.space-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .entry-name {
     height: 1.5em;
     display: block;
@@ -74,4 +81,10 @@ a:hover {
 
 .spacer {
     height: 50px;
+}
+
+#avatar {
+    margin: 15px;
+    border: 4px solid whitesmoke;
+    border-radius: 50%;
 }
