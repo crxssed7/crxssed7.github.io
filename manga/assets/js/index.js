@@ -108,7 +108,7 @@ function handleData(data) {
 
         var color = e['media']['coverImage']['color'];
         if (color == null || color == undefined) {
-            color = 'grey';
+            color = '#a0a0a0';
         }
 
         var chapterName = e['media']['title']['english']
@@ -154,7 +154,7 @@ function handleData(data) {
 
         var color = e['media']['coverImage']['color'];
         if (color == null || color == undefined) {
-            color = 'whitesmoke';
+            color = '#a0a0a0';
         }
 
         var chapterName = e['media']['title']['english']
@@ -189,7 +189,7 @@ function handleData(data) {
 
         var color = e['media']['coverImage']['color'];
         if (color == null || color == undefined) {
-            color = 'whitesmoke';
+            color = '#a0a0a0';
         }
 
         var chapterName = e['media']['title']['english']
