@@ -97,7 +97,6 @@ function handleData(data) {
     var chaptersLeftEl = document.getElementById('chapters_left');
     var avatarEl = document.getElementById('avatar');
 
-    console.log(data);
     avatarEl.setAttribute('src', data["data"]["MediaListCollection"]['user']['avatar']['medium']);
 
     reading.map((e) => {
@@ -106,7 +105,7 @@ function handleData(data) {
         if (notes == null) {
             notesStr = '';
         } else {
-            notesStr = notes;
+            notesStr = `data-bs-toggle="tooltip" data-bs-title='${stripSafe(notes)}'`;
         }
 
         var startedAt = e['startedAt'];
@@ -142,7 +141,7 @@ function handleData(data) {
         read += progress;
 
         var html = `
-        <div class="entry" style="border-color: ${color};" title="${notesStr}">
+        <div class="entry" style="border-color: ${color};"  ${notesStr}>
             <div class="flex">
                 <div class="entry-img" style="background-image: url('${e['media']['coverImage']['medium']}');">
                 </div>
@@ -170,7 +169,7 @@ function handleData(data) {
         if (notes == null) {
             notesStr = '';
         } else {
-            notesStr = notes;
+            notesStr = `data-bs-toggle="tooltip" data-bs-title='${stripSafe(notes)}'`;
         }
 
         var completedAt = e['completedAt'];
@@ -198,7 +197,7 @@ function handleData(data) {
         read += e['progress'];
 
         var html = `
-        <div class="entry" style="border-color: ${color};" title="${notesStr}">
+        <div class="entry" style="border-color: ${color};"  ${notesStr}>
             <div class="flex">
                 <div class="entry-img"
                     style="background-image: url('${e['media']['coverImage']['medium']}');">
@@ -222,7 +221,7 @@ function handleData(data) {
         if (notes == null) {
             notesStr = '';
         } else {
-            notesStr = notes;
+            notesStr = `data-bs-toggle="tooltip" data-bs-title='${stripSafe(notes)}'`;
         }
 
         var chapters = e['media']['chapters'];
@@ -243,7 +242,7 @@ function handleData(data) {
         }
 
         var html = `
-        <div class="entry" style="border-color: ${color};" title="${notesStr}">
+        <div class="entry" style="border-color: ${color};"  ${notesStr}>
             <div class="flex">
                 <div class="entry-img"
                     style="background-image: url('${e['media']['coverImage']['medium']}');">
@@ -262,6 +261,9 @@ function handleData(data) {
 
     chaptersReadEl.innerText = read;
     chaptersLeftEl.innerText = left;
+
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 }
 
 function handleError(error) {
@@ -272,4 +274,8 @@ function handleError(error) {
 function generateDate(year, month, day) {
     var date = new Date(year, month - 1, day);
     return date.toLocaleDateString();
+}
+
+function stripSafe(value) {
+    return value.replaceAll('<', '').replaceAll('>', '').replaceAll("'", '&#39;').replaceAll('"', '&#34;');
 }
