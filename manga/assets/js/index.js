@@ -95,10 +95,19 @@ function handleData(data) {
     var plannedEl = document.getElementById('planned');
     var chaptersReadEl = document.getElementById('chapters_read');
     var chaptersLeftEl = document.getElementById('chapters_left');
+    var totalEl = document.getElementById('total');
     var avatarEl = document.getElementById('avatar');
+    var readingCountEl = document.getElementById('reading_count');
+    var completedCountEl = document.getElementById('completed_count');
+    var plannedCountEl = document.getElementById('planned_count');
 
     avatarEl.setAttribute('src', data["data"]["MediaListCollection"]['user']['avatar']['medium']);
 
+    readingCountEl.innerText = reading.length;
+    completedCountEl.innerText = completed.length;
+    plannedCountEl.innerText = planning.length;
+    totalEl.innerText = reading.length + completed.length + planning.length;
+    
     reading.map((e) => {
         var notes = e['notes'];
         var notesStr = '';
