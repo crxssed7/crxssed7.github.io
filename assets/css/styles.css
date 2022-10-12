@@ -1,49 +1,83 @@
-::-moz-selection {
-  color: #020202;
-  background-color: #e6e6e6;
+body {
+    background: rgb(2, 2, 2);
+    margin: 30px;
+    font-family: 'Courier Prime', monospace;
 }
 
-::selection {
-  color: #020202;
-  background-color: #e6e6e6;
+p,
+ul {
+    margin-bottom: 0px;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+ul {
+    list-style-type: '::';
+}
+
+h3,
+h5 {
+    font-weight: bold;
+}
+
+a {
+    color: rgb(2, 2, 2);
+}
+
+a:hover {
+    color: rgb(2, 2, 2);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.no-style {
+    all: unset;
 }
 
 .spacer {
-  height: 15px;
+    height: 30px;
+    width: 100%;
 }
 
-.center {
-  display: flex;
-  flex-direction: column;
-  max-height: 100%;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  text-align: center;
+.rect {
+    padding: 20px;
+    width: 100%;
 }
 
-@media screen and (max-width: 991px) {
-  #content-desktop {
-    display: none;
-  }
+.secondary-bg {
+    background-color: #e6e6e6ff;
 }
 
-@media screen and (max-width: 767px) {
-  #content-desktop {
-    display: none;
-  }
+.profile-img {
+    max-width: 50px;
 }
 
-@media screen and (max-width: 479px) {
-  #content-desktop {
-    display: none;
-  }
+.feature-project-img {
+    width: 100%;
+    height: 150px;
+    background-repeat: none;
+    background-position: center;
+    background-size: cover;
 }
 
+.trakt-card {
+    max-width: 100%;
+}
+
+@media only screen and (min-width: 575px) {
+
+    /* For desktop: */
+    div.sticky {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 30px;
+    }
+}
+
+::-moz-selection {
+    color: #e6e6e6;
+    background-color: #020202;
+}
+
+::selection {
+    color: #e6e6e6;
+    background-color: #020202;
+}

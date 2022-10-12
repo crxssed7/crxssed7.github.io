@@ -107,7 +107,7 @@ function handleData(data) {
     completedCountEl.innerText = completed.length;
     plannedCountEl.innerText = planning.length;
     totalEl.innerText = reading.length + completed.length + planning.length;
-    
+
     reading.map((e) => {
         var notes = e['notes'];
         var notesStr = '';
@@ -150,7 +150,7 @@ function handleData(data) {
         read += progress;
 
         var html = `
-        <div class="entry" style="border-color: ${color};"  ${notesStr}>
+        <div class="entry" style="border-color: ${color};" ${notesStr}>
             <div class="flex">
                 <div class="entry-img" style="background-image: url('${e['media']['coverImage']['medium']}');">
                 </div>
