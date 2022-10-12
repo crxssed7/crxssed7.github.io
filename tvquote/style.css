@@ -16,6 +16,11 @@
     color: whitesmoke;
 }
 
+#quote-author {
+    font-family: 'Century Gothic';
+    color: whitesmoke;
+}
+
 body {
     background-color: rgb(2, 2, 2);
 }
