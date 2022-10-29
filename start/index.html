@@ -12,6 +12,9 @@
     <link rel="icon" type="image/png" sizes="180x180" href="/assets/img/180x180.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="/assets/img/512x512.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -31,7 +34,7 @@
             crxssed
         </h3>
         <ul>
-            <li><a href="https://github.com" id="first" class="focusable github" tabindex="0">github</a></li>
+            <li><a href="https://github.com" id="init" class="focusable github" tabindex="0">github</a></li>
             <ul>
                 <li><a href="https://github.com/crxssed7" class="focusable github" tabindex="0">account</a></li>
                 <li><a href="https://github.com/crxssed7?tab=repositories" class="focusable github"
@@ -50,6 +53,31 @@
             <li><a href="https://crxssed.dev" class="focusable website" tabindex="0">website</a></li>
         </ul>
     </div>
+    <script>
+        var links  = $(".focusable");
+        var current = 0;
+        var max = links.length;
+        $(document).keydown(
+            function (e) {
+                if (e.keyCode == 38) {
+                    if (current === 0) {
+                        current = max - 1;
+                    } else {
+                        current = current - 1;
+                    }
+                    links[current].focus();
+                }
+                if (e.keyCode == 40) {
+                    if (current === max - 1) {
+                        current = 0;
+                    } else {
+                        current = current + 1;
+                    }
+                    links[current].focus();
+                }
+            }
+        );
+    </script>
 </body>
 
 </html>
