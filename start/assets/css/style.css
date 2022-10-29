@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+
+* {
+    font-family: 'Silkscreen';
+}
+
+body {
+    background-image: url("https://i.pinimg.com/originals/19/6a/d9/196ad9d3122098b297d7b99ce9ff209f.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+a, a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.github:hover, .github:focus {
+    background-color: #171515;
+}
+
+.trakt:hover, .trakt:focus {
+    background-color: #ed1b23;
+}
+
+.anilist:hover, .anilist:focus {
+    background-color: #02a9ff;
+}
+
+.website:hover, .website:focus {
+    background-color: #020202;
+}
+
+ul {
+    list-style-type: '> ';
+    margin: 0px;
+}
+
+ul ul {
+    list-style-type: '- ';
+}
+
+.content {
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    text-align: left;
+    color: white;
+}
+
+::selection {
+    background-color: rgb(26,40,44);
+}
+
+::-moz-selection {
+    background-color: rgb(26,40,44);
+}
