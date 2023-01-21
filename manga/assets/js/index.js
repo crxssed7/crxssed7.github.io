@@ -7,6 +7,7 @@ lists {
     name
     entries {
       id
+      customLists
       progress
       updatedAt
       completedAt {
@@ -72,6 +73,10 @@ class Manga {
         this.setProgressAndMaximum()
         this.setColor()
         this.setCoverImage()
+    }
+
+    isCollecting() {
+        return this.data['customLists']['Collecting']
     }
 
     generateNotesHtml() {
@@ -181,6 +186,12 @@ class Manga {
         if (this.max === 0) {
             fractionHtml = `<p style="margin-bottom: 0px;"><small>${this.progress} / ?</small></p>`
         }
+
+        // Is this being collected?
+        var coll = ""
+        if (this.isCollecting() === true) {
+            coll = `<i class="bi bi-bookmark-check-fill" title="Collecting"></i>`
+        }
         
         return `
         <div class="entry" style="border-color: ${this.color};" ${this.generateNotesHtml()}>
@@ -193,7 +204,10 @@ class Manga {
                     </div>
                     <div>
                         ${dateHtml}
-                        ${fractionHtml}
+                        <div class="d-flex justify-content-between">
+                            ${fractionHtml}
+                            ${coll}
+                        </div>
                         ${progressBarHtml}
                     </div>
                 </div>
@@ -239,23 +253,12 @@ function handleData(data) {
         return obj.name === "Planning"
     })["entries"];
 
-    var collecting = data["data"]["main"]["lists"].find(obj => {
-        return obj.name === "Collecting"
-    })["entries"];
-    var collecting_completed = data["data"]["completed"]["lists"].find(obj => {
-        return obj.name === "Collecting"
-    })["entries"];
-    collecting = collecting.concat(collecting_completed);
-
-    console.log(collecting)
-
     var read = 0;
     var left = 0;
 
     var readingEl = document.getElementById('reading');
     var completedEl = document.getElementById('completed');
     var plannedEl = document.getElementById('planned');
-    var collectingEl = document.getElementById('collecting');
     var chaptersReadEl = document.getElementById('chapters_read');
     var chaptersLeftEl = document.getElementById('chapters_left');
     var totalEl = document.getElementById('total');
@@ -263,14 +266,12 @@ function handleData(data) {
     var readingCountEl = document.getElementById('reading_count');
     var completedCountEl = document.getElementById('completed_count');
     var plannedCountEl = document.getElementById('planned_count');
-    var collectingCountEl = document.getElementById('collecting_count');
 
     avatarEl.setAttribute('src', data["data"]["main"]['user']['avatar']['medium']);
 
     readingCountEl.innerText = reading.length;
     completedCountEl.innerText = completed.length;
     plannedCountEl.innerText = planning.length;
-    collectingCountEl.innerText = collecting.length;
     totalEl.innerText = reading.length + completed.length + planning.length;
 
     reading.map((e) => {
@@ -304,16 +305,6 @@ function handleData(data) {
         var html = manga.toHtml();
 
         plannedEl.innerHTML += html;
-    })
-
-    collecting.map((e) => {
-        var manga = new Manga(e, "COLLECTING");
-
-        left += manga.max;
-
-        var html = manga.toHtml();
-
-        collectingEl.innerHTML += html;
     })
 
     chaptersReadEl.innerText = read;
