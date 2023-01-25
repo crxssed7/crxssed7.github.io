@@ -83,6 +83,11 @@ a:hover {
     height: 50px;
 }
 
+.section-title {
+    text-align: center;
+    font-weight: bold;
+}
+
 #avatar {
     margin: 15px;
     border: 4px solid whitesmoke;
