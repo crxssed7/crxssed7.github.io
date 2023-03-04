@@ -254,7 +254,7 @@ function handleData(data) {
         return obj.name === "Planning"
     })["entries"];
     planning.sort(function(a, b) {
-        return a.priority - b.priority
+        return b.priority - a.priority
     })
 
     var read = 0;
