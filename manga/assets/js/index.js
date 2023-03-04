@@ -254,8 +254,9 @@ function handleData(data) {
         return obj.name === "Planning"
     })["entries"];
     planning.sort(function(a, b) {
-        return b.priority - a.priority
-    })
+        return a.priority - b.priority
+    });
+    planning.reverse();
 
     var read = 0;
     var left = 0;
