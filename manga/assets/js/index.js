@@ -256,7 +256,7 @@ function handleData(data) {
     planning.sort(function(a, b) {
         return a.priority - b.priority
     });
-    planning.reverse();
+    planning = planning.reverse();
 
     var read = 0;
     var left = 0;
