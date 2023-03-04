@@ -7,6 +7,7 @@ lists {
     name
     entries {
       id
+      priority
       customLists
       progress
       updatedAt
@@ -252,6 +253,9 @@ function handleData(data) {
     var planning = data["data"]["main"]["lists"].find(obj => {
         return obj.name === "Planning"
     })["entries"];
+    planning.sort(function(a, b) {
+        return a.priority - b.priority
+    })
 
     var read = 0;
     var left = 0;
