@@ -73,7 +73,7 @@ class Manga {
         this.setName()
         this.setProgressAndMaximum()
         this.setColor()
-        this.setCoverImage()
+        this.setImages()
     }
 
     isCollecting() {
@@ -139,8 +139,9 @@ class Manga {
         this.name = mangaName;
     }
 
-    setCoverImage() {
+    setImages() {
         this.coverImage = this.data['media']['coverImage']['medium']
+        this.bannerImage = this.data['media']['bannerImage']
     }
 
     generateDate(year, month, day) {
@@ -151,31 +152,8 @@ class Manga {
     stripSafe(value) {
         return value.replaceAll('<', '').replaceAll('>', '').replaceAll("'", '&#39;').replaceAll('"', '&#34;');
     }
-
-    buildProgessBar() {
-        var val = this.progress;
-        var max = this.max;
-        if (max === 0) {
-            max = 1;
-            val = 1
-        }
-
-        var percentage = (val / max) * 100;
-
-        return `
-    <div class="progress" style="height: 5px;">
-        <div class="progress-bar" role="progressbar" style="width: ${percentage}%; background-color: ${this.color};" aria-valuenow="${this.progress}" aria-valuemin="0" aria-valuemax="${this.max}"></div>
-    </div>
-        `;
-    }
     
     toHtml() {
-        // Build Progress Bar
-        var progressBarHtml = "";
-        if (this.progressBarStatuses.includes(this.status.toUpperCase())) {
-            progressBarHtml = this.buildProgessBar();
-        }
-    
         // Build Date String
         var dateHtml = ""
         if (this.dateStatuses.includes(this.status.toUpperCase())) {
@@ -195,21 +173,18 @@ class Manga {
         }
         
         return `
-        <div class="entry" style="border-color: ${this.color};" ${this.generateNotesHtml()}>
-            <div class="flex">
+        <div class="entry" style="border-color: ${this.color}; background-image: url(${this.bannerImage}); background-color: ${this.color};" ${this.generateNotesHtml()}>
+            <div class="flex entry-bg-img">
                 <div class="entry-img" style="background-image: url('${this.coverImage}');">
                 </div>
                 <div class="entry-content">
-                    <div class="entry-name">
-                        <h5>${this.name}</h5>
-                    </div>
+                    <h5 class="entry-name">${this.name}</h5>
                     <div>
                         ${dateHtml}
                         <div class="d-flex justify-content-between">
                             ${fractionHtml}
                             ${coll}
                         </div>
-                        ${progressBarHtml}
                     </div>
                 </div>
             </div>
