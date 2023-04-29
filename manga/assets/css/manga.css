@@ -91,8 +91,46 @@ a:hover {
     font-weight: bold;
 }
 
+.to-top {
+    margin: 20px;
+    font-size: 30px;
+    text-align:right;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+}
+
 #avatar {
     margin: 15px;
     border: 4px solid whitesmoke;
     border-radius: 50%;
+    width: 108px;
+    height: 108px;
+}
+
+/* Bootstrap overrides */
+
+/* Nav container */
+.nav {
+    gap: 5px;
+}
+
+/* Nav active */
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link, .nav-link.active>span {
+    background-color: whitesmoke;
+    color: black;
+    font-weight: bold;
+}
+
+/* Nav not active */
+.nav-link {
+    color: whitesmoke;
+    font-weight: bold;
+    border: 1px solid whitesmoke !important;
+}
+
+/* Nav hover */
+.nav-link:focus, .nav-link:hover {
+    color: lightgrey;
 }

@@ -64,8 +64,7 @@ var query = `
 `;
 
 class Manga {
-    progressBarStatuses = ["READING"];
-    dateStatuses = ["READING", "COMPLETED"];
+    dateStatuses = ["READING", "COMPLETED", "PAUSED"];
 
     constructor(data, status) {
         this.data = data
@@ -104,6 +103,16 @@ class Manga {
                 output = startedAtString
             break;
             
+            case "PAUSED":
+                var startedAt = this.data['startedAt'];
+                var startedAtString = "";
+                if (startedAt['year']) {
+                    var d = this.generateDate(Number(startedAt['year']), Number(startedAt['month']), Number(startedAt['day']));
+                    startedAtString = `Started: ${d}`
+                }
+                output = startedAtString
+            break;
+
             case "COMPLETED":
                 var completedAt = this.data['completedAt'];
                 var completedAtString = "";
@@ -225,6 +234,10 @@ function handleData(data) {
         return obj.name === "Reading"
     })["entries"];
     
+    var paused = data["data"]["main"]["lists"].find(obj => {
+        return obj.name === "Paused"
+    })["entries"];
+
     var planning = data["data"]["main"]["lists"].find(obj => {
         return obj.name === "Planning"
     })["entries"];
@@ -239,19 +252,24 @@ function handleData(data) {
     var readingEl = document.getElementById('reading');
     var completedEl = document.getElementById('completed');
     var plannedEl = document.getElementById('planned');
+    var pausedEl = document.getElementById('paused');
+
     var chaptersReadEl = document.getElementById('chapters_read');
     var chaptersLeftEl = document.getElementById('chapters_left');
     var totalEl = document.getElementById('total');
     var avatarEl = document.getElementById('avatar');
+
     var readingCountEl = document.getElementById('reading_count');
     var completedCountEl = document.getElementById('completed_count');
     var plannedCountEl = document.getElementById('planned_count');
+    var pausedCountEl = document.getElementById('paused_count');
 
-    avatarEl.setAttribute('src', data["data"]["main"]['user']['avatar']['medium']);
+    avatarEl.setAttribute('src', data["data"]["main"]['user']['avatar']['large']);
 
     readingCountEl.innerText = reading.length;
     completedCountEl.innerText = completed.length;
     plannedCountEl.innerText = planning.length;
+    pausedCountEl.innerText = paused.length;
     totalEl.innerText = reading.length + completed.length + planning.length;
 
     reading.map((e) => {
@@ -287,6 +305,16 @@ function handleData(data) {
         plannedEl.innerHTML += html;
     })
 
+    paused.map((e) => {
+        var manga = new Manga(e, "PAUSED");
+
+        var html = manga.toHtml();
+        
+        read += manga.progress;
+
+        pausedEl.innerHTML += html;
+    })
+
     chaptersReadEl.innerText = read;
     chaptersLeftEl.innerText = left;
 
@@ -298,3 +326,17 @@ function handleError(error) {
     // alert('Error, check console');
     console.error(error);
 }
+
+const toTop = document.getElementById('link-to-top');
+toTop.hidden = true;
+
+document.addEventListener("scroll", (event) => {
+    let lastKnownScrollPosition = window.scrollY;
+    const threshold = 100;
+
+    if (lastKnownScrollPosition > threshold) {
+        toTop.hidden = false;
+    } else if (lastKnownScrollPosition < threshold) {
+        toTop.hidden = true;
+    }
+})

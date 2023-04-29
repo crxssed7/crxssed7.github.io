@@ -38,6 +38,12 @@
 </head>
 
 <body style="color: rgb(2,2,2);background: rgb(2,2,2);">
+    <div id="top"></div>
+
+    <a href="#top" id="link-to-top">
+        <i class="bi bi-arrow-up-square-fill to-top"></i>
+    </a>
+
     <div class="header">
         <img src="" alt="Avatar" id="avatar">
         <h1>crxssed manga list</h1>
@@ -65,24 +71,57 @@
         </div>
         <div class="spacer"></div>
         <p><small>Records marked with <i class="bi bi-bookmark-check-fill" title="Collecting"></i> are manga that I am collecting or have collected. My full collection is available <a href="https://tankobon.net/users/crxssed/">here</a>.</small></p>
-        <div>
-            <h3 class="section-title">Reading - (<span id="reading_count">0</span>)</h3>
-            <div id="reading">
-
+        
+        <ul class="nav nav-pills nav-fill" id="tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="reading-tab" data-bs-toggle="tab" data-bs-target="#reading-target" type="button" role="tab" aria-controls="reading-target" aria-selected="true">
+                    Reading - <span id="reading_count">0</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="completed-tab" data-bs-toggle="tab" data-bs-target="#completed-target" type="button" role="tab" aria-controls="completed-target" aria-selected="false">
+                    Completed - <span id="completed_count">0</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="planning-tab" data-bs-toggle="tab" data-bs-target="#planning-target" type="button" role="tab" aria-controls="planning-target" aria-selected="false">
+                    Planned - <span id="planned_count">0</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="paused-tab" data-bs-toggle="tab" data-bs-target="#paused-target" type="button" role="tab" aria-controls="paused-target" aria-selected="false">
+                    Paused - <span id="paused_count">0</span>
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content" id="tabsContent">
+            <div class="tab-pane fade show active" id="reading-target" role="tabpanel" aria-labelledby="reading-tab">
+                <div>
+                    <div id="reading">
+        
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="spacer"></div>
-        <div>
-            <h3 class="section-title">Completed - (<span id="completed_count">0</span>)</h3>
-            <div id="completed">
-
+            <div class="tab-pane fade" id="completed-target" role="tabpanel" aria-labelledby="completed-tab">
+                <div>
+                    <div id="completed">
+        
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="spacer"></div>
-        <div>
-            <h3 class="section-title">Planned - (<span id="planned_count">0</span>)</h3>
-            <div id="planned">
-
+            <div class="tab-pane fade" id="planning-target" role="tabpanel" aria-labelledby="planning-tab">
+                <div>
+                    <div id="planned">
+        
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="paused-target" role="tabpanel" aria-labelledby="paused-tab">
+                <div>
+                    <div id="paused">
+        
+                    </div>
+                </div>
             </div>
         </div>
 
