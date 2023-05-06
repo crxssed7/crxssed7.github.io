@@ -47,7 +47,7 @@ body {
 }
 
 .tankobon-bg {
-    background: linear-gradient(90deg, rgb(82, 185, 185), rgb(82, 218, 171));
+    background-color: rgb(41, 207, 149);
 }
 
 .kaboom-bg {
@@ -63,7 +63,7 @@ body {
 }
 
 .tankobon-bg h1 {
-    text-decoration-color: rgb(82, 218, 171);
+    text-decoration-color: rgb(41, 207, 149);
 }
 
 .kaboom-bg h1 {
