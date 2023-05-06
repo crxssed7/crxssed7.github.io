@@ -7,8 +7,8 @@
    viewBox="0 0 285.74999 285.75001"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
-   sodipodi:docname="logo.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="tankobon_logo.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -26,14 +26,16 @@
      units="px"
      width="1920px"
      inkscape:zoom="0.38796647"
-     inkscape:cx="565.77054"
+     inkscape:cx="563.193"
      inkscape:cy="703.66906"
-     inkscape:window-width="1896"
-     inkscape:window-height="1001"
-     inkscape:window-x="10"
-     inkscape:window-y="65"
+     inkscape:window-width="941"
+     inkscape:window-height="499"
+     inkscape:window-x="965"
+     inkscape:window-y="567"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="0"
+     inkscape:deskcolor="#505050" />
   <defs
      id="defs2" />
   <g
@@ -43,9 +45,9 @@
     <g
        id="g2260"
        transform="translate(-312.44278,-5.8397505)"
-       style="fill:#212529;fill-opacity:1">
+       style="fill:#f2f2f2;fill-opacity:1">
       <rect
-         style="fill:#212529;stroke-width:7.23423;fill-opacity:1"
+         style="fill:#f2f2f2;stroke-width:7.23423;fill-opacity:1"
          id="rect950"
          width="88.56691"
          height="104.39439"
@@ -54,7 +56,7 @@
          ry="12.349845"
          transform="matrix(0.8360271,0.54868815,0,1,0,0)" />
       <rect
-         style="fill:#212529;stroke-width:7.23423;fill-opacity:1"
+         style="fill:#f2f2f2;stroke-width:7.23423;fill-opacity:1"
          id="rect1032"
          width="88.56691"
          height="104.39439"

@@ -17,8 +17,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/projects.css">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.css'>
-    <link rel="stylesheet" href="assets/css/fullPageStyles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
     <meta property="og:description" content="a collection of my projects.">
     <meta name="keywords" content="projects">
@@ -31,78 +32,96 @@
 </head>
 
 <body>
-    <div id="fullpage">
-        <section class="vertical-scrolling tankobon">
-            <center>
-                <img src="/assets/img/projects/tankobon_logo.svg" alt="Tankobon Logo" class="logo">
-                <h1>Tankōbon</h1>
-                <span class="spacer"></span>
-                <p>Tankōbon is a community driven site that documents the volumes of manga.</p>
-                <a class="btn btn-primary" href="https://tankobon.fly.dev" role="button">Live deployment</a>
-                <span class="spacer"></span>
-                <a class="btn btn-primary" href="https://github.com/crxssed7/tankobon" role="button">Source</a>
-                <div class="d-xl-flex mx-auto justify-content-xl-center align-items-xl-center"
-                style="padding: 0px;margin: 10px;font-size: 40px;">
-                    <i class="icon devicon-python-plain d-xl-flex justify-content-xl-center align-items-xl-center"></i>
-                    <i class="icon devicon-django-plain d-xl-flex justify-content-xl-center align-items-xl-center"></i>
-                    <i class="icon devicon-postgresql-plain d-xl-flex justify-content-xl-center align-items-xl-center"></i>
+    <!-- Slider main container -->
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide tankobon-bg">
+                <div class="slide-content">
+                    <img class="logo" src="/assets/img/projects/tankobon_logo.svg" alt="">
+                    <h1 class="underline"><b>Tankōbon</b></h1>
+                    <p>A community driven manga collection tracker.</p>
+                    <div class="links">
+                        <a class="btn btn-primary" href="https://tankobon.net/" role="button">Live deployment</a>
+                        <a class="btn btn-primary" href="https://github.com/crxssed7/tankobon" role="button">Source</a>
+                    </div>
+                    <div class="d-xl-flex mx-auto justify-content-xl-center align-items-xl-center" style="padding: 0px;margin: 10px;font-size: 40px;">
+                        <i class="icon devicon-python-plain d-xl-flex justify-content-xl-center align-items-xl-center"></i>
+                        <i class="icon devicon-django-plain d-xl-flex justify-content-xl-center align-items-xl-center"></i>
+                        <i class="icon devicon-postgresql-plain d-xl-flex justify-content-xl-center align-items-xl-center"></i>
+                    </div>
                 </div>
-            </center>
-        </section>
-        <section class="vertical-scrolling kaboom">
-            <center>
-                <img src="/assets/img/projects/kaboom_logo.svg" alt="Kaboom Logo" class="logo">
-                <span class="spacer"></span>
-                <h1>KABOOM</h1>
-                <span class="spacer"></span>
-                <p>Kaboom is a platform that provides metadata about comics and cartoons, and also allows users to track what they have read or watched.</p>
-                <a class="btn btn-primary disabled" href="#" role="button">Live deployment (coming soon)</a>
-                <span class="spacer"></span>
-                <a class="btn btn-primary" href="https://github.com/kaboom-db/kaboom" role="button">Source</a>
-                <div class="d-xl-flex mx-auto justify-content-xl-center align-items-xl-center"
-                style="padding: 0px;margin: 10px;font-size: 40px;">
-                    <i class="icon devicon-python-plain d-xl-flex justify-content-xl-center align-items-xl-center"></i>
-                    <i class="icon devicon-django-plain d-xl-flex justify-content-xl-center align-items-xl-center"></i>
-                    <i class="icon devicon-postgresql-plain d-xl-flex justify-content-xl-center align-items-xl-center"></i>
+            </div>
+            <div class="swiper-slide kaboom-bg">
+                <div class="slide-content">
+                    <img class="logo" src="/assets/img/projects/kaboom_logo.svg" alt="">
+                    <h1 class="underline"><b>KABOOM</b></h1>
+                    <p>A community driven comics and cartoons tracker.</p>
+                    <div class="links">
+                        <a class="btn btn-primary disabled" href="#" role="button" title="Coming soon...">Live deployment</a>
+                        <a class="btn btn-primary" href="https://github.com/kaboom-db/kaboom" role="button">Source</a>
+                    </div>
+                    <div class="d-xl-flex mx-auto justify-content-xl-center align-items-xl-center" style="padding: 0px;margin: 10px;font-size: 40px;">
+                        <i class="icon devicon-python-plain d-xl-flex justify-content-xl-center align-items-xl-center"></i>
+                        <i class="icon devicon-django-plain d-xl-flex justify-content-xl-center align-items-xl-center"></i>
+                        <i class="icon devicon-postgresql-plain d-xl-flex justify-content-xl-center align-items-xl-center"></i>
+                    </div>
                 </div>
-            </center>
-        </section>
-        <section class="vertical-scrolling passguard">
-            <center>
-                <img src="/assets/img/projects/passguard_logo.png" alt="Kaboom Logo" class="logo">
-                <span class="spacer"></span>
-                <h1>PassGuard</h1>
-                <span class="spacer"></span>
-                <p>PassGuard is an encrypted Windows password manager that can store passwords and also generate secure ones.</p>
-                <a class="btn btn-primary" href="https://github.com/kitric/passguard/releases/tag/1.0.0" role="button">Download (Windows only)</a>
-                <span class="spacer"></span>
-                <a class="btn btn-primary" href="https://github.com/kitric/passguard" role="button">Source</a>
-                <div class="d-xl-flex mx-auto justify-content-xl-center align-items-xl-center"
-                style="padding: 0px;margin: 10px;font-size: 40px;">
-                    <i class="icon devicon-csharp-plain d-xl-flex justify-content-xl-center align-items-xl-center"></i>
+            </div>
+            <div class="swiper-slide passguard-bg">
+                <div class="slide-content">
+                    <img class="logo" src="/assets/img/projects/passguard_logo.png" alt="">
+                    <h1 class="underline"><b>PassGuard</b></h1>
+                    <p>A password manager and generator for Windows.</p>
+                    <div class="links">
+                        <a class="btn btn-primary" href="https://github.com/kitric/passguard/releases/tag/1.0.0" role="button">Download</a>
+                        <a class="btn btn-primary" href="https://github.com/kitric/passguard" role="button">Source</a>
+                    </div>
+                    <div class="d-xl-flex mx-auto justify-content-xl-center align-items-xl-center" style="padding: 0px;margin: 10px;font-size: 40px;">
+                        <i class="icon devicon-csharp-plain d-xl-flex justify-content-xl-center align-items-xl-center"></i>
+                    </div>
                 </div>
-            </center>
-        </section>
-        <section class="vertical-scrolling comicpeeps">
-            <center>
-                <img src="/assets/img/projects/comicpeeps_logo.png" alt="Kaboom Logo" class="logo">
-                <span class="spacer"></span>
-                <h1>ComicPeeps</h1>
-                <span class="spacer"></span>
-                <p>ComicPeeps is a digital comic book reader and library manager, with support for CBZ and CBR files.</p>
-                <a class="btn btn-primary" href="https://github.com/kitric/comicpeeps/releases/tag/v1.0.0" role="button">Download (Windows only)</a>
-                <span class="spacer"></span>
-                <a class="btn btn-primary" href="https://github.com/kitric/comicpeeps" role="button">Source</a>
-                <div class="d-xl-flex mx-auto justify-content-xl-center align-items-xl-center"
-                style="padding: 0px;margin: 10px;font-size: 40px;">
-                    <i class="icon devicon-csharp-plain d-xl-flex justify-content-xl-center align-items-xl-center"></i>
+            </div>
+            <div class="swiper-slide comicpeeps-bg">
+                <div class="slide-content">
+                    <img class="logo" src="/assets/img/projects/comicpeeps_logo.png" alt="">
+                    <h1 class="underline"><b>ComicPeeps</b></h1>
+                    <p>A digital comics reader and manager for Windows.</p>
+                    <div class="links">
+                        <a class="btn btn-primary" href="https://github.com/kitric/comicpeeps/releases/tag/v1.0.0" role="button">Download</a>
+                        <a class="btn btn-primary" href="https://github.com/kitric/comicpeeps" role="button">Source</a>
+                    </div>
+                    <div class="d-xl-flex mx-auto justify-content-xl-center align-items-xl-center" style="padding: 0px;margin: 10px;font-size: 40px;">
+                        <i class="icon devicon-csharp-plain d-xl-flex justify-content-xl-center align-items-xl-center"></i>
+                    </div>
                 </div>
-            </center>
-        </section>
+            </div>
+        </div>
+
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
     </div>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.min.js'></script>
-    <script src="/assets/js/fullPage.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            direction: 'vertical',
+            loop: true,
+            mousewheel: true,
+            keyboard: true,
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // And if we need scrollbar
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        });
+    </script>
 </body>
 
 </html>
