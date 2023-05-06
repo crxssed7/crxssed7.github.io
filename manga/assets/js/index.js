@@ -85,7 +85,7 @@ class Manga {
         if (notes === null) {
             notesStr = '';
         } else {
-            notesStr = `data-bs-toggle="tooltip" data-bs-title='${this.stripSafe(notes)}'`;
+            notesStr = `data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title='${this.stripSafe(notes)}'`;
         }
         return notesStr
     }
