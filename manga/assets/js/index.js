@@ -130,6 +130,11 @@ class Manga {
         this.progress = Number(this.data['progress']);
         var chapters = this.data['media']['chapters'];
         this.max = Number(chapters);
+        if (this.max > 0) {
+            this.percentage = ((this.progress / this.max) * 100).toFixed(0)
+        } else {
+            this.percentage = undefined
+        }
     }
 
     setColor() {
@@ -170,7 +175,7 @@ class Manga {
         }
     
         // Build Fraction String
-        var fractionHtml = `<p style="margin-bottom: 0px;"><small>${this.progress} / ${this.max}</small></p>`
+        var fractionHtml = `<p style="margin-bottom: 0px;"><small>${this.progress} / ${this.max} (${this.percentage}%)</small></p>`
         if (this.max === 0) {
             fractionHtml = `<p style="margin-bottom: 0px;"><small>${this.progress} / ?</small></p>`
         }
