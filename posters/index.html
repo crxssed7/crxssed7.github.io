@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crxssed - posters</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courier+Prime">
+    <style>
+        * {
+            font-family: "Courier Prime", Courier, monospace;
+            font-weight: bold;
+        }
+
+        .collection {
+            padding: 50px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .poster {
+            border-radius: 10px;
+            width: 150px;
+        }
+
+        .poster-container {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <a href="/">Back to main site</a>
+    <div class="collection">
+        <h1>Monochrome Manga Posters</h1>
+        <div class="container" id="monochrome"></div>
+    </div>
+    <div class="collection">
+        <h1>Coloured Manga Posters</h1>
+        <div class="container" id="coloured"></div>
+    </div>
+
+    <script>
+        fetch("./posters.json")
+            .then((response) => response.json())
+            .then((json) => {
+                const monochrome = json["monochrome"];
+                const coloured = json["coloured"];
+
+                const monochromeEl = document.getElementById("monochrome");
+                const colouredEl = document.getElementById("coloured");
+
+                monochrome.forEach(element => addElements(monochromeEl, element));
+                coloured.forEach(element => addElements(colouredEl, element));
+            });
+
+        function addElements(container, element) {
+            let div = document.createElement("div");
+            div.classList.add("poster-container");
+
+            let img = document.createElement("img");
+            img.src = element["path"];
+            img.classList.add("poster");
+            div.appendChild(img);
+
+            let p = document.createElement("p");
+            p.innerText = "Available on:";
+            div.appendChild(p);
+
+            const links = element["shop"];
+            if (links.length > 0) {
+                links.forEach(link => {
+                    let el = document.createElement("a");
+                    el.href = link["link"];
+                    el.innerText = link["name"];
+                    div.appendChild(el);
+                });
+            } else {
+                let no_links = document.createElement("p");
+                no_links.innerText = "Coming soon";
+                div.appendChild(no_links);
+            }
+
+            container.appendChild(div);
+        }
+    </script>
+</body>
+</html>

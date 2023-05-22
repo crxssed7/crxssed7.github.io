@@ -1,0 +1,68 @@
+{
+    "monochrome": [
+        {
+            "path": "img/monochrome/spy-x-family.png",
+            "shop": [
+                {
+                    "name": "RedBubble",
+                    "link": "https://www.redbubble.com/shop/ap/145787483"
+                }
+            ]
+        },
+        {
+            "path": "img/monochrome/one-piece.png",
+            "shop": [
+                {
+                    "name": "RedBubble",
+                    "link": "https://www.redbubble.com/shop/ap/145787822"
+                }
+            ]
+        },
+        {
+            "path": "img/monochrome/hinamatsuri.png",
+            "shop": [
+                {
+                    "name": "RedBubble",
+                    "link": "https://www.redbubble.com/shop/ap/145787915"
+                }
+            ]
+        },
+        {
+            "path": "img/monochrome/berserk.png",
+            "shop": []
+        }
+    ],
+    "coloured": [
+        {
+            "path": "img/coloured/spy-x-family-col.png",
+            "shop": [
+                {
+                    "name": "RedBubble",
+                    "link": "https://www.redbubble.com/shop/ap/145788048"
+                }
+            ]
+        },
+        {
+            "path": "img/coloured/one-piece-col.png",
+            "shop": [
+                {
+                    "name": "RedBubble",
+                    "link": "https://www.redbubble.com/shop/ap/145788150"
+                }
+            ]
+        },
+        {
+            "path": "img/coloured/hinamatsuri-col.png",
+            "shop": [
+                {
+                    "name": "RedBubble",
+                    "link": "https://www.redbubble.com/shop/ap/145788222"
+                }
+            ]
+        },
+        {
+            "path": "img/coloured/berserk-col.png",
+            "shop": []
+        }
+    ]
+}
