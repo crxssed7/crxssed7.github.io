@@ -67,6 +67,8 @@
             let img = document.createElement("img");
             img.src = element["path"];
             img.classList.add("poster");
+            img.title = element["name"]
+            img.alt = element["name"] + " Poster"
             div.appendChild(img);
 
             let p = document.createElement("p");

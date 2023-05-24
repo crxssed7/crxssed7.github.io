@@ -1,6 +1,7 @@
 {
     "monochrome": [
         {
+            "name": "Spy x Family - Monochrome",
             "path": "img/monochrome/spy-x-family.png",
             "shop": [
                 {
@@ -10,6 +11,7 @@
             ]
         },
         {
+            "name": "One Piece - Monochrome",
             "path": "img/monochrome/one-piece.png",
             "shop": [
                 {
@@ -19,6 +21,7 @@
             ]
         },
         {
+            "name": "Hinamatsuri - Monochrome",
             "path": "img/monochrome/hinamatsuri.png",
             "shop": [
                 {
@@ -28,6 +31,7 @@
             ]
         },
         {
+            "name": "Berserk - Monochrome",
             "path": "img/monochrome/berserk.png",
             "shop": [
                 {
@@ -37,6 +41,7 @@
             ]
         },
         {
+            "name": "Uzumaki - Monochrome",
             "path": "img/monochrome/uzumaki.png",
             "shop": [
                 {
@@ -46,12 +51,14 @@
             ]
         },
         {
+            "name": "Fullmetal Alchemist - Monochrome",
             "path": "img/monochrome/fma.png",
             "shop": []
         }
     ],
     "coloured": [
         {
+            "name": "Spy x Family - Coloured",
             "path": "img/coloured/spy-x-family-col.png",
             "shop": [
                 {
@@ -61,6 +68,7 @@
             ]
         },
         {
+            "name": "One Piece - Coloured",
             "path": "img/coloured/one-piece-col.png",
             "shop": [
                 {
@@ -70,6 +78,7 @@
             ]
         },
         {
+            "name": "Hinamatsuri - Coloured",
             "path": "img/coloured/hinamatsuri-col.png",
             "shop": [
                 {
@@ -79,6 +88,7 @@
             ]
         },
         {
+            "name": "Berserk - Coloured",
             "path": "img/coloured/berserk-col.png",
             "shop": [
                 {
@@ -88,6 +98,7 @@
             ]
         },
         {
+            "name": "Uzumaki - Coloured",
             "path": "img/coloured/uzumaki-col.png",
             "shop": [
                 {
@@ -97,6 +108,7 @@
             ]
         },
         {
+            "name": "Fullmetal Alchemist - Coloured",
             "path": "img/coloured/fma-col.png",
             "shop": []
         }
