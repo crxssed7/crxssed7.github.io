@@ -29,11 +29,21 @@
         },
         {
             "path": "img/monochrome/berserk.png",
-            "shop": []
+            "shop": [
+                {
+                    "name": "RedBubble",
+                    "link": "https://www.redbubble.com/shop/ap/145949174"
+                }
+            ]
         },
         {
             "path": "img/monochrome/uzumaki.png",
-            "shop": []
+            "shop": [
+                {
+                    "name": "RedBubble",
+                    "link": "https://www.redbubble.com/shop/ap/145949615"
+                }
+            ]
         }
     ],
     "coloured": [
@@ -66,11 +76,21 @@
         },
         {
             "path": "img/coloured/berserk-col.png",
-            "shop": []
+            "shop": [
+                {
+                    "name": "RedBubble",
+                    "link": "https://www.redbubble.com/shop/ap/145949380"
+                }
+            ]
         },
         {
-            "path": "img/monochrome/uzumaki-col.png",
-            "shop": []
+            "path": "img/coloured/uzumaki-col.png",
+            "shop": [
+                {
+                    "name": "RedBubble",
+                    "link": "https://www.redbubble.com/shop/ap/145949650"
+                }
+            ]
         }
     ]
 }
