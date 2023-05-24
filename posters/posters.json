@@ -44,6 +44,10 @@
                     "link": "https://www.redbubble.com/shop/ap/145949615"
                 }
             ]
+        },
+        {
+            "path": "img/monochrome/fma.png",
+            "shop": []
         }
     ],
     "coloured": [
@@ -91,6 +95,10 @@
                     "link": "https://www.redbubble.com/shop/ap/145949650"
                 }
             ]
+        },
+        {
+            "path": "img/coloured/fma-col.png",
+            "shop": []
         }
     ]
 }
