@@ -30,6 +30,10 @@
         {
             "path": "img/monochrome/berserk.png",
             "shop": []
+        },
+        {
+            "path": "img/monochrome/uzumaki.png",
+            "shop": []
         }
     ],
     "coloured": [
@@ -62,6 +66,10 @@
         },
         {
             "path": "img/coloured/berserk-col.png",
+            "shop": []
+        },
+        {
+            "path": "img/monochrome/uzumaki-col.png",
             "shop": []
         }
     ]
