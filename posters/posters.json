@@ -33,22 +33,12 @@
         {
             "name": "Berserk - Monochrome",
             "path": "img/monochrome/berserk.png",
-            "shop": [
-                {
-                    "name": "RedBubble",
-                    "link": "https://www.redbubble.com/shop/ap/145949174"
-                }
-            ]
+            "shop": []
         },
         {
             "name": "Uzumaki - Monochrome",
             "path": "img/monochrome/uzumaki.png",
-            "shop": [
-                {
-                    "name": "RedBubble",
-                    "link": "https://www.redbubble.com/shop/ap/145949615"
-                }
-            ]
+            "shop": []
         },
         {
             "name": "Fullmetal Alchemist - Monochrome",
@@ -90,22 +80,12 @@
         {
             "name": "Berserk - Coloured",
             "path": "img/coloured/berserk-col.png",
-            "shop": [
-                {
-                    "name": "RedBubble",
-                    "link": "https://www.redbubble.com/shop/ap/145949380"
-                }
-            ]
+            "shop": []
         },
         {
             "name": "Uzumaki - Coloured",
             "path": "img/coloured/uzumaki-col.png",
-            "shop": [
-                {
-                    "name": "RedBubble",
-                    "link": "https://www.redbubble.com/shop/ap/145949650"
-                }
-            ]
+            "shop": []
         },
         {
             "name": "Fullmetal Alchemist - Coloured",
