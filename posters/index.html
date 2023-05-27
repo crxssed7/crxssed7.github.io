@@ -6,10 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>crxssed - posters</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courier+Prime">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/32x32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="/assets/img/180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/img/512x512.png">
     <style>
         * {
             font-family: "Courier Prime", Courier, monospace;
-            font-weight: bold;
+            color: whitesmoke;
+        }
+
+        body {
+            background-color: rgb(2, 2, 2);
         }
 
         .collection {
@@ -28,21 +37,44 @@
 
         .poster-container {
             margin: 10px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            background-color: whitesmoke;
+            border-radius: 10px;
         }
 
-        .main-site-link {
-            margin-left: 50px;
+        .poster-container>p, .poster-container>a {
+            color: rgb(2, 2, 2);
+        }
+
+        .coming-soon {
+            margin: 0px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .poster {
+                width: 200px;
+            }
+
+            .container {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="/" class="main-site-link">Back to main site</a>
     <div class="collection">
-        <h1>Monochrome Manga Posters</h1>
+        <h1>Manga Posters</h1>
+        <p>This page contains my series of manga posters. The images here are low quality to prevent them being ripped off by other people. If you want to see high quality renders checkout the individual shop pages.</p>
+        <a href="/">Back to main site</a>
+    </div>
+    <div class="collection">
+        <h1>Monochrome Posters</h1>
         <div class="container" id="monochrome"></div>
     </div>
     <div class="collection">
-        <h1>Coloured Manga Posters</h1>
+        <h1>Coloured Posters</h1>
         <div class="container" id="coloured"></div>
     </div>
 
@@ -86,6 +118,7 @@
             } else {
                 let no_links = document.createElement("p");
                 no_links.innerText = "coming soon";
+                no_links.classList.add("coming-soon")
                 div.appendChild(no_links);
             }
 
