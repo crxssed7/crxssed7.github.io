@@ -44,6 +44,16 @@
             "name": "Fullmetal Alchemist - Monochrome",
             "path": "img/monochrome/fma.png",
             "shop": []
+        },
+        {
+            "name": "Assassination Classroom - Monochrome",
+            "path": "img/monochrome/assassination-classroom.png",
+            "shop": []
+        },
+        {
+            "name": "Saiki Kusuo no Ψ-nan - Monochrome",
+            "path": "img/monochrome/saiki-k.png",
+            "shop": []
         }
     ],
     "coloured": [
@@ -90,6 +100,16 @@
         {
             "name": "Fullmetal Alchemist - Coloured",
             "path": "img/coloured/fma-col.png",
+            "shop": []
+        },
+        {
+            "name": "Assassination Classroom - Coloured",
+            "path": "img/coloured/assassination-classroom-col.png",
+            "shop": []
+        },
+        {
+            "name": "Saiki Kusuo no Ψ-nan - Coloured",
+            "path": "img/coloured/saiki-k-col.png",
             "shop": []
         }
     ]
