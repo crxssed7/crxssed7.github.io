@@ -65,7 +65,7 @@ export class Manga {
             case "READING":
                 output = this.dateString("startedAt", "Started");
             break;
-            
+
             case "PAUSED":
                 output = this.dateString("startedAt", "Started");
             break;
@@ -116,7 +116,7 @@ export class Manga {
         if (this.dateStatuses.includes(this.status.toUpperCase())) {
             dateHtml = this.generateDateHtml();
         }
-    
+
         // Build Fraction String
         const fractionHtml = this.generateFractionHtml();
 
@@ -125,11 +125,11 @@ export class Manga {
         if (this.isCollecting() === true) {
             coll = this.generateIcon("bi-bookmark-check-fill", "Collecting");
         }
-        
+
         const outerDiv = this.emptyElement("div");
         outerDiv.classList.add("entry");
         outerDiv.style = `border-color: ${this.color}; background-image: url(${this.bannerImage}); background-color: ${this.color};`
-        const notes = this.data['notes'];
+        var notes = this.data['notes'];
         if (notes !== null) {
             outerDiv.setAttribute("data-bs-toggle", "tooltip");
             outerDiv.setAttribute("data-bs-placement", "bottom");
