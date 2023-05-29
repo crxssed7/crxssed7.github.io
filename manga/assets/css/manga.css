@@ -109,6 +109,10 @@ a:hover {
     height: 108px;
 }
 
+.icons {
+    text-align: end;
+}
+
 /* Bootstrap overrides */
 
 /* Nav container */
@@ -140,4 +144,16 @@ a:hover {
 /* Nav hover */
 .nav-link:focus, .nav-link:hover, .nav-link:hover * {
     color: lightgrey;
+}
+
+/* Bootstrap icons */
+@media only screen and (max-width: 768px) {
+    .bi {
+        margin-right: 7px;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .bi {
+        margin-left: 7px;
+    }
 }

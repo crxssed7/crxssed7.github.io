@@ -4,9 +4,10 @@ import { generateDate } from "./helpers/generateDate.js";
 export class Manga {
     dateStatuses = ["READING", "COMPLETED", "PAUSED"];
 
-    constructor(data, status) {
+    constructor(data, status, favourite) {
         this.data = data
         this.status = status
+        this.favourite = favourite
         this.setName()
         this.setProgressAndMaximum()
         this.setColor()
@@ -106,6 +107,10 @@ export class Manga {
         return iTag;
     }
 
+    appendIcon(icon, container) {
+        container.appendChild(icon.cloneNode(false));
+    }
+
     emptyElement(tag = "p") {
         return document.createElement(tag)
     }
@@ -120,11 +125,19 @@ export class Manga {
         // Build Fraction String
         const fractionHtml = this.generateFractionHtml();
 
+        // Is this favourited?
+        var favourited = this.emptyElement("div");
+        if (this.favourite === true) {
+            favourited = this.generateIcon("bi-star-fill", "Favourite");
+        }
+
         // Is this being collected?
         var coll = this.emptyElement("div");
         if (this.isCollecting() === true) {
             coll = this.generateIcon("bi-bookmark-check-fill", "Collecting");
         }
+
+        const icons = [favourited, coll];
 
         const outerDiv = this.emptyElement("div");
         outerDiv.classList.add("entry");
@@ -163,8 +176,22 @@ export class Manga {
         justifiedDiv.classList.add("d-flex");
         justifiedDiv.classList.add("justify-content-between");
         justifiedDiv.appendChild(fractionHtml);
-        justifiedDiv.appendChild(coll);
         detailDiv.appendChild(justifiedDiv);
+
+        const iconDivMobile = this.emptyElement("div");
+        iconDivMobile.classList.add("d-md-none");
+        iconDivMobile.classList.add("d-lg-none");
+        iconDivMobile.classList.add("icons");
+        icons.forEach((i) => this.appendIcon(i, iconDivMobile))
+        detailDiv.appendChild(iconDivMobile);
+
+        const iconDivDesktop = this.emptyElement("div");
+        iconDivDesktop.classList.add("d-none");
+        iconDivDesktop.classList.add("d-sm-none");
+        iconDivDesktop.classList.add("d-md-block");
+        iconDivDesktop.classList.add("icons");
+        icons.forEach((i) => this.appendIcon(i, iconDivDesktop))
+        justifiedDiv.appendChild(iconDivDesktop);
 
         return outerDiv;
     }

@@ -20,7 +20,7 @@ function handleData(data) {
     var reading = data["data"]["main"]["lists"].find(obj => {
         return obj.name === "Reading"
     })["entries"];
-    
+
     var paused = data["data"]["main"]["lists"].find(obj => {
         return obj.name === "Paused"
     })["entries"];
@@ -51,7 +51,9 @@ function handleData(data) {
     const plannedCountEl = document.getElementById('planned_count');
     const pausedCountEl = document.getElementById('paused_count');
 
-    avatarEl.setAttribute('src', data["data"]["main"]['user']['avatar']['large']);
+    const user = data["data"]["User"]
+    avatarEl.setAttribute('src', user['avatar']['large']);
+    const favourites = user["favourites"]["manga"]["nodes"].map(f => f["id"]);
 
     readingCountEl.innerText = reading.length;
     completedCountEl.innerText = completed.length;
@@ -60,7 +62,7 @@ function handleData(data) {
     totalEl.innerText = reading.length + completed.length + planning.length;
 
     reading.forEach((e) => {
-        var manga = new Manga(e, "READING")
+        var manga = new Manga(e, "READING", favourites.includes(e["media"]["id"]));
 
         if (manga.max > 0) {
             left += manga.max - manga.progress;
@@ -71,7 +73,7 @@ function handleData(data) {
     })
 
     completed.forEach((e) => {
-        var manga = new Manga(e, "COMPLETED");
+        var manga = new Manga(e, "COMPLETED", favourites.includes(e["media"]["id"]));
 
         read += manga.progress;
 
@@ -79,7 +81,7 @@ function handleData(data) {
     })
 
     planning.forEach((e) => {
-        var manga = new Manga(e, "PLANNED");
+        var manga = new Manga(e, "PLANNED", favourites.includes(e["media"]["id"]));
 
         left += manga.max;
 
@@ -87,8 +89,8 @@ function handleData(data) {
     })
 
     paused.forEach((e) => {
-        var manga = new Manga(e, "PAUSED");
-        
+        var manga = new Manga(e, "PAUSED", favourites.includes(e["media"]["id"]));
+
         read += manga.progress;
 
         pausedEl.appendChild(manga.toHtml());
