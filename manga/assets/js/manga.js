@@ -3,6 +3,18 @@ import { generateDate } from "./helpers/generateDate.js";
 
 export class Manga {
     dateStatuses = ["READING", "COMPLETED", "PAUSED"];
+    SCORES = {
+        1: "Horrific",
+        2: "Bad",
+        3: "Bad",
+        4: "Bad",
+        5: "Meh",
+        6: "Meh",
+        7: "Good",
+        8: "Good",
+        9: "Amazing",
+        10: "Terrific"
+    }
 
     constructor(data, status, favourite) {
         this.data = data
@@ -12,6 +24,7 @@ export class Manga {
         this.setProgressAndMaximum()
         this.setColor()
         this.setImages()
+        this.setScore()
     }
 
     isCollecting() {
@@ -43,6 +56,10 @@ export class Manga {
             mangaName = this.data['media']['title']['romaji'];
         }
         this.name = mangaName;
+    }
+
+    setScore() {
+        this.score = this.data["score"] === 0 ? null : this.data["score"];
     }
 
     setImages() {
@@ -137,7 +154,12 @@ export class Manga {
             coll = this.generateIcon("bi-bookmark-check-fill", "Collecting");
         }
 
-        const icons = [favourited, coll];
+        var scoreIcon = this.emptyElement("div");
+        if (this.score !== null) {
+            scoreIcon = this.generateIcon(`bi-${this.score}-square-fill`, this.SCORES[this.score]);
+        }
+
+        const icons = [favourited, coll, scoreIcon];
 
         const outerDiv = this.emptyElement("div");
         outerDiv.classList.add("entry");
@@ -179,6 +201,7 @@ export class Manga {
         detailDiv.appendChild(justifiedDiv);
 
         const iconDivMobile = this.emptyElement("div");
+        iconDivMobile.classList.add("d-sm-flex");
         iconDivMobile.classList.add("d-md-none");
         iconDivMobile.classList.add("d-lg-none");
         iconDivMobile.classList.add("icons");
@@ -188,7 +211,7 @@ export class Manga {
         const iconDivDesktop = this.emptyElement("div");
         iconDivDesktop.classList.add("d-none");
         iconDivDesktop.classList.add("d-sm-none");
-        iconDivDesktop.classList.add("d-md-block");
+        iconDivDesktop.classList.add("d-md-flex");
         iconDivDesktop.classList.add("icons");
         icons.forEach((i) => this.appendIcon(i, iconDivDesktop))
         justifiedDiv.appendChild(iconDivDesktop);

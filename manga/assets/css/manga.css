@@ -110,7 +110,7 @@ a:hover {
 }
 
 .icons {
-    text-align: end;
+    justify-content: flex-end;
 }
 
 /* Bootstrap overrides */
