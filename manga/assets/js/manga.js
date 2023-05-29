@@ -201,6 +201,7 @@ export class Manga {
         detailDiv.appendChild(justifiedDiv);
 
         const iconDivMobile = this.emptyElement("div");
+        iconDivMobile.classList.add("d-flex");
         iconDivMobile.classList.add("d-sm-flex");
         iconDivMobile.classList.add("d-md-none");
         iconDivMobile.classList.add("d-lg-none");
@@ -212,6 +213,7 @@ export class Manga {
         iconDivDesktop.classList.add("d-none");
         iconDivDesktop.classList.add("d-sm-none");
         iconDivDesktop.classList.add("d-md-flex");
+        iconDivDesktop.classList.add("d-lg-flex");
         iconDivDesktop.classList.add("icons");
         icons.forEach((i) => this.appendIcon(i, iconDivDesktop))
         justifiedDiv.appendChild(iconDivDesktop);
