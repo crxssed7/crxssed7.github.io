@@ -1,4 +1,3 @@
-import { stripSafe } from "./helpers/stripSafe.js";
 import { generateDate } from "./helpers/generateDate.js";
 
 export class Manga {
@@ -161,15 +160,14 @@ export class Manga {
 
         const icons = [favourited, coll, scoreIcon];
 
+        const link = this.emptyElement("a");
+        link.classList.add("entry-link");
+        link.href = `https://reviews.crxssed.dev/manga/${this.data.media.id}`
+
         const outerDiv = this.emptyElement("div");
         outerDiv.classList.add("entry");
         outerDiv.style = `border-color: ${this.color}; background-image: url(${this.bannerImage}); background-color: ${this.color};`
-        var notes = this.data['notes'];
-        if (notes !== null) {
-            outerDiv.setAttribute("data-bs-toggle", "tooltip");
-            outerDiv.setAttribute("data-bs-placement", "bottom");
-            outerDiv.setAttribute("data-bs-title", stripSafe(notes));
-        }
+        link.appendChild(outerDiv);
 
         const innerDiv = this.emptyElement("div");
         innerDiv.classList.add("flex");
@@ -218,6 +216,6 @@ export class Manga {
         icons.forEach((i) => this.appendIcon(i, iconDivDesktop))
         justifiedDiv.appendChild(iconDivDesktop);
 
-        return outerDiv;
+        return link;
     }
 }

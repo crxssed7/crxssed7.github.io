@@ -61,6 +61,11 @@ a:hover {
     margin: 0px;
 }
 
+.entry-link {
+    all: unset;
+    cursor: pointer;
+}
+
 .header {
     margin: 25px;
     display: flex;
