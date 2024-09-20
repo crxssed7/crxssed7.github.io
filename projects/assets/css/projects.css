@@ -46,12 +46,16 @@ body {
     text-decoration-thickness: 5px;
 }
 
-.tankobon-bg {
-    background-color: rgb(41, 207, 149);
-}
-
 .kaboom-bg {
     background: linear-gradient(90deg, rgba(255, 95, 109, 1) 0%, rgba(255, 195, 113, 1) 77%);
+}
+
+.tsuki-bg {
+    background-color: rgb(250 235 214);
+}
+
+.tankobon-bg {
+    background-color: rgb(41, 207, 149);
 }
 
 .passguard-bg {
@@ -62,12 +66,16 @@ body {
     background-color: #fc8e44;
 }
 
-.tankobon-bg h1 {
-    text-decoration-color: rgb(41, 207, 149);
-}
-
 .kaboom-bg h1 {
     text-decoration-color: rgba(255, 95, 109, 1);
+}
+
+.tsuki-bg h1 {
+    text-decoration-color: rgb(250 235 214);
+}
+
+.tankobon-bg h1 {
+    text-decoration-color: rgb(41, 207, 149);
 }
 
 .passguard-bg h1 {
