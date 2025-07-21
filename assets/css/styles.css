@@ -1,7 +1,7 @@
 body {
     background: rgb(2, 2, 2);
     margin: 30px;
-    font-family: 'Courier Prime', monospace;
+    font-family: "Courier Prime", monospace;
 }
 
 p,
@@ -10,7 +10,7 @@ ul {
 }
 
 ul {
-    list-style-type: '::';
+    list-style-type: "::";
 }
 
 h3,
@@ -47,11 +47,13 @@ a:hover {
 }
 
 .stripes {
-    background: repeating-linear-gradient(45deg,
-            #e6e6e6ff,
-            #e6e6e6ff 20px,
-            #020202 20px,
-            #020202 40px);
+    background: repeating-linear-gradient(
+        45deg,
+        #e6e6e6ff,
+        #e6e6e6ff 20px,
+        #020202 20px,
+        #020202 40px
+    );
     height: 35px;
 }
 
@@ -72,7 +74,6 @@ a:hover {
 }
 
 @media only screen and (min-width: 575px) {
-
     /* For desktop: */
     div.sticky {
         position: -webkit-sticky;
@@ -89,4 +90,8 @@ a:hover {
 ::selection {
     color: #e6e6e6;
     background-color: #020202;
+}
+
+.hw-powered-by a {
+    color: white !important;
 }
