@@ -95,3 +95,11 @@ a:hover {
 .hw-powered-by a {
     color: white !important;
 }
+
+.hardcover-widget {
+    padding: 0 !important;
+}
+
+.hw-book-cover {
+    border-radius: 0 !important;
+}
