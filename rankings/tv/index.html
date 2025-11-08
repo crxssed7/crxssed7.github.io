@@ -105,6 +105,7 @@
 
       data.forEach((item, i) => {
         const show = item.show;
+        if (show === undefined) return;
         const img = `https://${show.images.poster[0]}`;
 
         const card = document.createElement("a");
