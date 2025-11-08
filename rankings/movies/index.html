@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>Ranking of Kings</title>
+  <title>Ranking of Queens</title>
   <meta name="theme-color" content="rgb(2,2,2)">
   <meta name="" content="">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/16x16.png">
@@ -93,29 +93,29 @@
   </style>
 </head>
 <body>
-  <h1>Ranking of Kings</h1>
-  <p>A list of shows I've watched and recommend. I've tried my best to rank them based on my personal preferences but it's all very close.</p>
-  <div class="grid" id="shows"></div>
+  <h1>Ranking of Queens</h1>
+  <p>A list of movies I've watched and recommend, ranked based on my personal preferences. I've watched many movies in my life time so this is definitely not a full list and many movies may be missing/misranked. I'm in the process of rewatching forgotten favourites.</p>
+  <div class="grid" id="movies"></div>
 
   <script>
-    async function loadShows() {
-      const res = await fetch("https://albert.crxssed.dev/api/trakt/list/crxssed/ranking-of-kings");
+    async function loadMovies() {
+      const res = await fetch("https://albert.crxssed.dev/api/trakt/list/crxssed/ranking-of-queens");
       const data = await res.json();
-      const container = document.getElementById("shows");
+      const container = document.getElementById("movies");
 
       data.forEach((item, i) => {
-        const show = item.show;
-        if (show === undefined) return;
-        const img = `https://${show.images.poster[0]}`;
+        const movie = item.movie;
+        if (movie === undefined) return;
+        const img = `https://${movie.images.poster[0]}`;
 
         const card = document.createElement("a");
         card.className = "card";
-        card.href = `https://www.imdb.com/title/${show.ids.imdb}`;
+        card.href = `https://www.imdb.com/title/${movie.ids.imdb}`;
         card.innerHTML = `
           <div class="rank">#${i + 1}</div>
-          <img src="${img}" alt="${show.title}">
+          <img src="${img}" alt="${movie.title}">
           <div class="overlay">
-            <div class="title">${show.title}</div>
+            <div class="title">${movie.title}</div>
           </div>
         `;
 
@@ -136,7 +136,7 @@
       });
     }
 
-    loadShows();
+    loadMovies();
   </script>
 </body>
 </html>
