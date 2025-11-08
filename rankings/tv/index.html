@@ -36,7 +36,6 @@
       grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 1.5rem;
       justify-items: center;
-      perspective: 1000px;
     }
 
     .card {
@@ -51,6 +50,7 @@
       transform-style: preserve-3d;
       cursor: pointer;
       color: white;
+      perspective: 1000px;
     }
 
     .card:hover {
@@ -118,13 +118,12 @@
           </div>
         `;
 
-        // 🎥 3D tilt effect
         card.addEventListener("mousemove", (e) => {
           const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const rotateY = ((x / rect.width) - 0.5) * 10; // max tilt 20deg
-          const rotateX = ((y / rect.height) - 0.5) * -10;
+          const x = e.offsetX; // ✅ use offsetX/offsetY (position within the card)
+          const y = e.offsetY;
+          const rotateY = ((x / rect.width) - 0.5) * 20;
+          const rotateX = ((y / rect.height) - 0.5) * -20;
           card.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.05)`;
         });
 
