@@ -90,6 +90,62 @@
       border-bottom-right-radius: 8px;
       font-size: 0.8rem;
     }
+
+    /* Top 3 cards special outlines */
+    .grid .card:nth-of-type(1) {
+      border: 2px solid gold;
+      box-shadow: 0 0 15px gold, 0 0 25px rgba(255, 215, 0, 0.4);
+      animation: sparkle-gold 2s infinite alternate;
+    }
+
+    .grid .card:nth-of-type(2) {
+      border: 2px solid silver;
+      box-shadow: 0 0 15px silver, 0 0 25px rgba(192, 192, 192, 0.4);
+      animation: sparkle-silver 2s infinite alternate;
+    }
+
+    .grid .card:nth-of-type(3) {
+      border: 2px solid #cd7f32; /* bronze */
+      box-shadow: 0 0 15px #cd7f32, 0 0 25px rgba(205, 127, 50, 0.4);
+      animation: sparkle-bronze 2s infinite alternate;
+    }
+
+    /* Sparkle animation */
+    @keyframes sparkle-gold {
+      0% {
+        box-shadow: 0 0 15px gold, 0 0 25px rgba(255,255,255,0.3);
+      }
+      50% {
+        box-shadow: 0 0 20px gold, 0 0 30px rgba(255,255,255,0.5);
+      }
+      100% {
+        box-shadow: 0 0 15px gold, 0 0 25px rgba(255,255,255,0.3);
+      }
+    }
+
+    @keyframes sparkle-silver {
+      0% {
+        box-shadow: 0 0 15px silver, 0 0 25px rgba(255,255,255,0.3);
+      }
+      50% {
+        box-shadow: 0 0 20px silver, 0 0 30px rgba(255,255,255,0.5);
+      }
+      100% {
+        box-shadow: 0 0 15px silver, 0 0 25px rgba(255,255,255,0.3);
+      }
+    }
+
+    @keyframes sparkle-bronze {
+      0% {
+        box-shadow: 0 0 15px #cd7f32, 0 0 25px rgba(255,255,255,0.3);
+      }
+      50% {
+        box-shadow: 0 0 20px #cd7f32, 0 0 30px rgba(255,255,255,0.5);
+      }
+      100% {
+        box-shadow: 0 0 15px #cd7f32, 0 0 25px rgba(255,255,255,0.3);
+      }
+    }
   </style>
 </head>
 <body>
