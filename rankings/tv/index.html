@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ranking of Kings</title>
+  <meta name="theme-color" content="rgb(2,2,2)">
+  <meta name="" content="">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/32x32.png">
+  <link rel="icon" type="image/png" sizes="180x180" href="/assets/img/180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/img/512x512.png">
+  <style>
+    body {
+      background-color: #0b0b0b;
+      color: #fff;
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    p {
+        text-align: center;
+        margin: 0;
+        margin-bottom: 3rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+      perspective: 1000px;
+    }
+
+    .card {
+      position: relative;
+      width: 160px;
+      height: 240px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #111;
+      box-shadow: 0 0 10px rgba(0,0,0,0.8);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transform-style: preserve-3d;
+      cursor: pointer;
+      color: white;
+    }
+
+    .card:hover {
+      box-shadow: 0 0 25px rgba(255,255,255,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 0.5rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    }
+
+    .title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .rank {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0,0,0,0.6);
+      padding: 0.25rem 0.5rem;
+      border-bottom-right-radius: 8px;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ranking of Kings</h1>
+  <p>A list of all the shows I've watched and recommend. I've tried my best to rank them based on my personal preferences but it's all very close.</p>
+  <div class="grid" id="shows"></div>
+
+  <script>
+    async function loadShows() {
+      const res = await fetch("https://albert.crxssed.dev/api/trakt/list/crxssed/ranking-of-kings");
+      const data = await res.json();
+      const container = document.getElementById("shows");
+
+      data.forEach((item, i) => {
+        const show = item.show;
+        const img = `https://${show.images.poster[0]}`;
+
+        const card = document.createElement("a");
+        card.className = "card";
+        card.href = `https://www.imdb.com/title/${show.ids.imdb}`;
+        card.innerHTML = `
+          <div class="rank">#${i + 1}</div>
+          <img src="${img}" alt="${show.title}">
+          <div class="overlay">
+            <div class="title">${show.title}</div>
+          </div>
+        `;
+
+        // 🎥 3D tilt effect
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const rotateY = ((x / rect.width) - 0.5) * 10; // max tilt 20deg
+          const rotateX = ((y / rect.height) - 0.5) * -10;
+          card.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.05)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "rotateY(0deg) rotateX(0deg) scale(1)";
+        });
+
+        container.appendChild(card);
+      });
+    }
+
+    loadShows();
+  </script>
+</body>
+</html>
